@@ -5,18 +5,13 @@ function setup() {
   song = loadSound('taylor.mp3');
   createCanvas(displayWidth, displayHeight);
   amp = new p5.Amplitude();
-  fft = new p5.FFT();
 }
 
 function draw() {
   background(2);
   var vol = amp.getLevel();
   var diam = map(vol, 0, 1, 10, 400);
-  let spectrum = fft.analyze();
-  
-  let max = Math.max(...spectrum)
-  let min =  Math.min(...spectrum)
-  fill(max,min,0);
+  fill(255,0,0);
   ellipse(width/2, height/2, diam, diam);
 }
 
